@@ -1,1 +1,2 @@
-# iot_cusztom_payload
+# Insights Platform Custom Payload definiton
+Soon...
