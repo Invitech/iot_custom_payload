@@ -79,7 +79,7 @@ Type: number
 Implies the maximum valid value of the data.
 Type: number
  
-#### divisor
+#### divisor property
 This property implies the number the sensor data should be divided with.
 For example a numeric type value of 101 with the divisor property of 10 means that the sensor measured 10.1. Only used with [numeric](#numeric) type.
 Type: number
