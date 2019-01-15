@@ -11,7 +11,8 @@ On the top level the node contains the following elements:
 
 ## transmit
 Contains the ports of the node along with detailed explanations of the data coming from them.
-Required properties:
+
+**Required properties:**
 - portNumber
   - The number of the port.
   - *Type:* `integer`
@@ -19,7 +20,8 @@ Required properties:
 
 ## receive
 The node receives data each time it is connecting. With the help of the received data nodes can be configured for example to connect more frequently etc.
-Required properties:
+
+**Required properties:**
 - commandName
   - The display name of the command.
   - *Type:* `string`
@@ -36,7 +38,7 @@ Required properties:
 ### parts
 Sensors connected to a port are sending a payload made from the hexadecimal value of their data combined. The platform then parses the payload retriving the data. These properties define how sensor data are organised to build the payload.
 
-Required properties:
+**Required properties:**
  - start
    - Implies the index where the hexadecimal value of the sensor data starts in the payload.
    - *Type:* `integer`
@@ -59,7 +61,7 @@ Required properties:
    - Name of the sensor.
    - *Type:* `string`
 
-Optional properties:
+**Optional properties:**
  - expiry
    - How many days before the data expires.
    - *Type:* `integer`
