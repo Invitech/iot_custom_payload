@@ -3,50 +3,53 @@ This document contains the guidelines to specify a custom node for the Insights 
 
 ## Structure
 On the top level the node contains the following elements:
-- name
+- **name**
   - The name of the node.
   - *Type:* `string`
-- [transmit](#transmit)
-- [receive](#receive)
+- **[transmit](#transmit)**
+- **[receive](#receive)**
 
 ## transmit
 Contains the ports of the node along with detailed explanations of the data coming from them.
+- *Type:* `array`
 
 **Required properties:**
-- portNumber
+- **portNumber**
   - The number of the port.
   - *Type:* `integer`
-- [parts](#parts)
+- **[parts](#parts)**
 
 ## receive
 The node receives data each time it is connecting. With the help of the received data nodes can be configured for example to connect more frequently etc.
+- *Type:* `array`
 
 **Required properties:**
-- commandName
+- **commandName**
   - The display name of the command.
   - *Type:* `string`
-- portNumber
+- **portNumber**
   - The number of the port.
   - *Type:* `integer`
-- hexData
+- **hexData**
   - The command in a hexadecimal format.
   - *Type:* `string`
-- confirmed:
+- **confirmed**
   - To set if confirmation from the node is required that it has received the message.
   - *Type:* `boolean`
 
 ### parts
 Sensors connected to a port are sending a payload made from the hexadecimal value of their data combined. The platform then parses the payload retriving the data. These properties define how sensor data are organised to build the payload.
+- *Type:* `array`
 
 **Required properties:**
- - start
+ - **start**
    - Implies the index where the hexadecimal value of the sensor data starts in the payload.
    - *Type:* `integer`
- - length
+ - **length**
    - Implies the length of the hexadecimal value of the sensor data.
    - *For example: a sensor value with the start index of 2 and the length of 5 will reach from the 2nd index of the payload to the 7th.*
    - *Type:* `integer`
- - type:
+ - **type:**
    - Implies the type of information the sensor is forwarding.
    - Can be one of the following:
      - integer
@@ -57,24 +60,24 @@ Sensors connected to a port are sending a payload made from the hexadecimal valu
      - numeric
        - This type is used when the sensor data value is intended to be divided by a number. Using `numeric` type requires the use of the `divisor` property.
     - *Type:* `string`
- - sensor
+ - **sensor**
    - Name of the sensor.
    - *Type:* `string`
 
 **Optional properties:**
- - expiry
+ - **expiry**
    - How many days before the data expires.
    - *Type:* `integer`
- - regex
+ - **regex**
    - Implies the regular expression of validity of an `ascii` type data.
    - *Type:* `string`
- - min
+ - **min**
    - Implies the minimum valid value of a numeric (`integer, double, float, numeric`) type data.
    - *Type:* `number`
- - max
+ - **max**
    - Implies the maximum valid value of a numeric (`integer, double, float, numeric`) type data.
    - *Type:* `number`
- - divisor
+ - **divisor**
    - This property implies the number the sensor data should be divided with.
    - *For example a numeric type value of 101 with the divisor property of 10 means that the sensor measured 10.1.*
    - Only used with `numeric` type.
