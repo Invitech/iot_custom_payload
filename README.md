@@ -18,7 +18,7 @@ Required properties:
 - [parts](#parts)
 
 ## receive
-todo
+Each time the node connects
 
 ### portNumber
 The number of the port.
@@ -56,7 +56,7 @@ Can be one of the following:
  - float
  - boolean
  - ascii
- - [numeric](#numeric)
+ - numeric (This type is used when the sensor data value is intended to be divided by a number. Using numeric type requires the use of the [divisor](#divisor) property.)
 Type: string
  
 #### sensor
@@ -79,10 +79,7 @@ Type: number
 Implies the maximum valid value of the data.
 Type: number
  
-#### divisor property
+#### divisor
 This property implies the number the sensor data should be divided with.
 For example a numeric type value of 101 with the divisor property of 10 means that the sensor measured 10.1. Only used with [numeric](#numeric) type.
 Type: number
-
-##### numeric
-This type is used when the sensor data value is intended to be divided by a number. Using numeric type requires the use of the divisor property.
