@@ -1,4 +1,4 @@
-# Insights Platform Custom Payload definiton
+# Insights Platform Custom Payload definition
 This document contains the guidelines to specify a custom node for the Insights Platform. Nodes are defined in JSON format specifying the ports of the connected sensor and structure of the data coming on each port.
 
 ## Structure
@@ -61,7 +61,19 @@ Sensors connected to a port are sending a payload made from the hexadecimal valu
        - This type is used when the sensor data value is intended to be divided by a number. Using `numeric` type requires the use of the `divisor` property.
     - *Type:* `string`
  - **sensor**
-   - Name of the sensor.
+   - Type of the sensor.
+   - Data from the same sensor type will always be grouped together.
+   - Can be any string or one of the following pre-defined strings:
+     - temperature
+       - Temperature in degrees Celsius.
+     - humidity
+       - Percentage of relative humidity.
+     - pressure
+       - Atmospheric pressure in Pa.
+     - charge
+       - Battery charge percentage.
+     - rssi
+       - Signal strength.
    - *Type:* `string`
 
 **Optional properties:**
