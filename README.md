@@ -84,12 +84,12 @@ Sensors connected to a port are sending a payload made from the hexadecimal valu
    - *Type:* `number`
    
 ## Schema
-Find the node validator JSON schema below:
-[node validator schema](custom_payload_v10.json)
+Find the node validator JSON schema here:
+**[node validator schema](custom_payload_v10.json)**
 
 ## Examples
-An example for defining a simple node with one port, sending temperature, humidity and pressure data.
-[simple node](custom_payload_v10_example.json)
+An example for defining a simple node with one port, sending temperature, humidity and pressure data: 
+**[simple node](custom_payload_v10_example.json)**
 
-An example for a more complex node with three ports sending different sensor data.
-[complex node](custom_payload_v10_complex_example.json)
+An example for a more complex node with three ports sending complex sensor data: 
+**[complex node](custom_payload_v10_complex_example.json)**
