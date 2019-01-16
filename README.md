@@ -9,7 +9,7 @@ On the top level the node contains the following elements:
 - **[transmit](#transmit)**
 - **[receive](#receive)**
 
-## transmit
+### transmit
 Contains the ports of the node along with detailed explanations of the data coming from them.
 - *Type:* `array`
 
@@ -19,7 +19,7 @@ Contains the ports of the node along with detailed explanations of the data comi
   - *Type:* `integer`
 - **[parts](#parts)**
 
-## receive
+### receive
 The node receives data each time it is connecting. With the help of the received data nodes can be configured for example to connect more frequently etc.
 - *Type:* `array`
 
@@ -37,7 +37,7 @@ The node receives data each time it is connecting. With the help of the received
   - To set if confirmation from the node is required that it has received the message.
   - *Type:* `boolean`
 
-### parts
+#### parts
 Sensors connected to a port are sending a payload made from the hexadecimal value of their data combined. The platform then parses the payload retriving the data. These properties define how sensor data are organised to build the payload.
 - *Type:* `array`
 
@@ -82,3 +82,14 @@ Sensors connected to a port are sending a payload made from the hexadecimal valu
    - *For example a numeric type value of 101 with the divisor property of 10 means that the sensor measured 10.1.*
    - Only used with `numeric` type.
    - *Type:* `number`
+   
+## Schema
+Find the node validator JSON schema below:
+[node validator schema](custom_payload_v10.json)
+
+## Examples
+An example for defining a simple node with one port, sending temperature, humidity and pressure data.
+[simple node](custom_payload_v10_example.json)
+
+An example for a more complex node with three ports sending different sensor data.
+[complex node](custom_payload_v10_complex_example.json)
