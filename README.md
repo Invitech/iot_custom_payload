@@ -88,7 +88,7 @@ Find the node validator JSON schema here:
 **[Node validator schema](custom_payload_v10.json)**
 
 ## Examples
-An example for defining a simple node with one port, sending temperature, humidity and pressure data: 
+An example for defining a simple node with one port sending temperature, humidity and pressure data: 
 **[Simple node](custom_payload_v10_example.json)**
 
 An example for a more complex node with three ports sending complex sensor data: 
