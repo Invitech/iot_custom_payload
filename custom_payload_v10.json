@@ -1,0 +1,230 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://iot.invitech.hu/lora/schema/custom_payload_v10.json",
+  "type": "object",
+  "title": "Custom Payload Schema",
+  "version": "1.0",
+  "default": null,
+  "required": [
+    "name",
+    "transmit",
+    "receive"
+  ],
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "type": "string",
+      "title": "Sensor profile name",
+      "default": "",
+      "examples": [
+        "Custom Payload"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "transmit": {
+      "$id": "#/properties/transmit",
+      "type": "array",
+      "title": "Transmit data per port",
+      "default": null,
+      "items": {
+        "$id": "#/properties/transmit/items",
+        "type": "object",
+        "title": "Port definition",
+        "default": null,
+        "required": [
+          "portNumber",
+          "parts"
+        ],
+        "properties": {
+          "portNumber": {
+            "$id": "#/properties/transmit/items/properties/portNumber",
+            "type": "integer",
+            "title": "Port number",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "parts": {
+            "$id": "#/properties/transmit/items/properties/parts",
+            "type": "array",
+            "title": "Parts of the payload",
+            "default": null,
+            "items": {
+              "$id": "#/properties/transmit/items/properties/parts/items",
+              "type": "object",
+              "title": "Sensor value descriptor",
+              "default": null,
+              "required": [
+                "start",
+                "length",
+                "type",
+                "sensor"
+              ],
+              "properties": {
+                "start": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/start",
+                  "type": "integer",
+                  "title": "Start of data",
+                  "default": 0,
+                  "examples": [
+                    0
+                  ]
+                },
+                "length": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/length",
+                  "type": "integer",
+                  "title": "Length of data",
+                  "default": 0,
+                  "examples": [
+                    4
+                  ]
+                },
+                "type": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/type",
+                  "type": "string",
+                  "enum": [
+                    "integer",
+                    "double",
+                    "float",
+                    "boolean",
+                    "ascii",
+					"numeric"
+                  ],
+                  "title": "Data type",
+                  "default": "",
+                  "examples": [
+                    "double"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "sensor": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/sensor",
+                  "type": "string",
+                  "title": "Name of the sensor",
+                  "default": "",
+                  "examples": [
+                    "temperature",
+                    "humidity",
+                    "complex-partOne",
+                    "complex-partTwo-thirdLevel"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "expiry": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/expiry",
+                  "type": "integer",
+                  "title": "Days before expiration",
+                  "default": 0,
+                  "examples": [
+                    4
+                  ]
+                },
+                "regex": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/regex",
+                  "type": "string",
+                  "title": "Regular expression of validity",
+                  "default": "",
+                  "examples": [
+                    "[0-9]"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "min": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/min",
+                  "type": "number",
+                  "title": "Minimum valid value",
+                  "default": 0,
+                  "examples": [
+                    -30,
+                    12.24
+                  ]
+                },
+                "max": {
+                  "$id": "#/properties/transmit/items/properties/parts/items/properties/max",
+                  "type": "number",
+                  "title": "Maximum valid value",
+                  "default": 0,
+                  "examples": [
+                    141,
+                    -27.14
+                  ]
+                },
+				"divisor": {
+				  "$id": "#/properties/transmit/items/properties/parts/items/properties/divisor",
+                  "type": "number",
+                  "title": "Numeric value divisor",
+                  "default": 1,
+                  "examples": [
+                    100,
+                    1000
+                  ]
+				}
+              }
+            }
+          }
+        }
+      }
+    },
+    "receive": {
+      "$id": "#/properties/receive",
+      "type": "array",
+      "title": "Predefined pull data",
+      "default": null,
+      "items": {
+        "$id": "#/properties/receive/items",
+        "type": "object",
+        "title": "Pull data definition",
+        "default": null,
+        "required": [
+          "commandName",
+          "portNumber",
+          "hexData",
+          "confirmed"
+        ],
+        "properties": {
+          "commandName": {
+            "$id": "#/properties/receive/items/properties/commandName",
+            "type": "string",
+            "title": "Display name of the command",
+            "default": "",
+            "examples": [
+              "Example command"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "portNumber": {
+            "$id": "#/properties/receive/items/properties/portNumber",
+            "type": "integer",
+            "title": "Port number",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "hexData": {
+            "$id": "#/properties/receive/items/properties/hexData",
+            "type": "string",
+            "title": "Port data",
+            "default": "",
+            "examples": [
+              "FF"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "confirmed": {
+            "$id": "#/properties/receive/items/properties/confirmed",
+            "type": "boolean",
+            "title": "Confirmed flag",
+            "default": false,
+            "examples": [
+              true,
+              false
+            ]
+          }
+        }
+      }
+    }
+  }
+}

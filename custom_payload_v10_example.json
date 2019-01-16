@@ -1,0 +1,45 @@
+{
+  "name": "Custom Payload",
+  "transmit": [
+    {
+      "portNumber": 1,
+      "parts": [
+        {
+          "start": 0,
+          "length": 4,
+          "type": "double",
+          "sensor": "temperature"
+        },
+        {
+          "start": 4,
+          "length": 2,
+          "type": "integer",
+          "sensor": "humidity",
+          "expiry": 7,
+          "regex": "[0-9]"
+        },
+        {
+          "start": 6,
+          "length": 4,
+          "divisor": 100,
+          "type": "numeric",
+          "sensor": "pressure"
+        }
+      ]
+    }
+  ],
+  "receive": [
+    {
+      "commandName": "Example command",
+      "portNumber": 1,
+      "hexData": "FF",
+      "confirmed": false
+    },
+    {
+      "commandName": "Example command 2",
+      "portNumber": 1,
+      "hexData": "FF",
+      "confirmed": true
+    }
+  ]
+}
