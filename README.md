@@ -71,7 +71,7 @@ Sensors connected to a port are sending a payload made from the hexadecimal valu
      - pressure
        - Atmospheric pressure in Pa.
      - charge
-       - Battery charge level (0-254).
+       - Battery charge level (0-255).
      - rssi
        - Signal strength.
    - *Type:* `string`
